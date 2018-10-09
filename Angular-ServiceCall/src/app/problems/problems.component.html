@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <h2 class="text-center"> Problems</h2>
+  <!-- <button class="btn ui-button-icon-secondary" (click)="addUser()"> Add User</button> -->
+</div>
+<div class="container">
+  <div class="table table-striped" id="customers" style="overflow-x:auto;">
+    <table>
+      <thead>
+      <tr>
+        <th>Problems Code</th>
+        <th>Problems Description</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody id="myTable">
+      <tr *ngFor="let user of problems">
+        <td>{{user.problemCode}}</td>
+        <td>{{user.problemDescription}}</td>
+        <td>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteProblems(user)">Delete
+          </button>
+          <button class="btn btn-danger" (click)="editProblems(user)" style="margin-left: 10px;"> Edit</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <button class="btn ui-button-icon-secondary" routerLink="/problems/create"> Add Problems</button>
+  </div>
+</div>

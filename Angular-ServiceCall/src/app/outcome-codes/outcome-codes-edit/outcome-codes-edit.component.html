@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <h2 class="text-center"> Outcome Code</h2>
+  <!-- <button class="btn ui-button-icon-secondary" (click)="addUser()"> Add User</button> -->
+</div>
+<div class="container">
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>outcomeDescription:</label>
+      <input formControlName="outcomeDescription" placeholder="outcomeDescription" name="outcomeDescription"
+             class="form-control">
+    </div>
+    <button class="btn btn-success">Update</button>
+  </form>
+</div>
+

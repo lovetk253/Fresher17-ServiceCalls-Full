@@ -1,0 +1,21 @@
+<div class="auth-container">
+  <div class="s1"><h2 class="text-center">Add Actions</h2>
+
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+
+      <div class="form-group">
+        <label>actionsDescription :</label>
+        <input formControlName="actionDescription" placeholder="actionDescription" name="actionDescription"
+               class="form-control" id="chargeDescription"
+               [ngClass]="{ 'is-invalid': submitted && f.actionDescription.errors }">
+        <div *ngIf="submitted && f.actionDescription.errors" class="invalid-feedback">
+          <div *ngIf="f.actionDescription.errors.required">Last Name is required</div>
+        </div>
+      </div>
+
+
+      <button class="btn btn-success">Create &#9824;</button>
+    </form>
+  </div>
+</div>

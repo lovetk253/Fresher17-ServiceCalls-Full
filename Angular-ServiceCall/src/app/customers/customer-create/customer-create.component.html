@@ -1,0 +1,36 @@
+<div class="auth-container">
+  <div class="s1"><h2 class="text-center">Add Charge Code</h2>
+
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label>customerName :</label>
+        <input formControlName="customerName" placeholder="customerName" name="customerName"
+               class="form-control" id="customerName" [ngClass]="{ 'is-invalid': submitted && f.customerName.errors }">
+        <div *ngIf="submitted && f.customerName.errors" class="invalid-feedback">
+          <div *ngIf="f.customerName.errors.required">customerName is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>customerAddress :</label>
+        <input formControlName="customerAddress" placeholder="customerAddress" name="customerAddress"
+               class="form-control" id="customerAddress"
+               [ngClass]="{ 'is-invalid': submitted && f.customerAddress.errors }">
+        <div *ngIf="submitted && f.customerAddress.errors" class="invalid-feedback">
+          <div *ngIf="f.customerAddress.errors.required">customerAddress is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>otherDetails :</label>
+        <input formControlName="otherDetails" placeholder="otherDetails" name="otherDetails"
+               class="form-control" id="otherDetails" [ngClass]="{ 'is-invalid': submitted && f.otherDetails.errors }">
+        <div *ngIf="submitted && f.otherDetails.errors" class="invalid-feedback">
+          <div *ngIf="f.otherDetails.errors.required">otherDetails is required</div>
+        </div>
+      </div>
+
+
+      <button class="btn btn-success">Create &#9824;</button>
+    </form>
+  </div>
+</div>

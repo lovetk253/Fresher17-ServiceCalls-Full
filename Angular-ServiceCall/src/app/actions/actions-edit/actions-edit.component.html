@@ -1,0 +1,12 @@
+<div class="col-md-6">
+  <h2 class="text-center">Edit Actions</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>actionDescription:</label>
+      <input formControlName="actionDescription" placeholder="actionDescription" name="actionDescription"
+             class="form-control">
+    </div>
+    <button class="btn btn-success">Update</button>
+  </form>
+
+</div>

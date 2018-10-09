@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+<tableList databaseId="0" databaseName="MYSQL" databaseProductName="MySQL" generation="2018-09-26 17:11:37">
+<table catalog="db_assigment" databaseType="TABLE" javaBean="Actions" name="Actions" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Action_Code" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="actionCode" javaType="java.lang.Integer" jdbcTypeCode="4" label="Action code" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Action_Description" dbNotNull="false" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="actionDescription" javaType="java.lang.String" jdbcTypeCode="12" label="Action description" maxLength="45" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Actions_Actions1" id="LINK_FK_fk_Service_Request_Actions_Actions1_I" inverseSideOf="LINK_FK_fk_Service_Request_Actions_Actions1_O" javaName="listOfServiceRequestActions" javaType="java.util.List" joinTableName="" mappedBy="actions" optional="" owningSide="false" sourceTableName="Actions" targetEntity="ServiceRequestActions" targetTableName="Service_Request_Actions" used="true"/>
+</table>
+<table catalog="db_assigment" databaseType="TABLE" javaBean="ChargeCodes" name="Charge_Codes" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Charge_Code" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="chargeCode" javaType="java.lang.Integer" jdbcTypeCode="4" label="Charge code" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Charge_Description" dbNotNull="false" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="chargeDescription" javaType="java.lang.String" jdbcTypeCode="12" label="Charge description" maxLength="45" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Calls_Charge_Codes1" id="LINK_FK_fk_Service_Request_Calls_Charge_Codes1_I" inverseSideOf="LINK_FK_fk_Service_Request_Calls_Charge_Codes1_O" javaName="listOfServiceRequestCalls" javaType="java.util.List" joinTableName="" mappedBy="chargeCodes" optional="" owningSide="false" sourceTableName="Charge_Codes" targetEntity="ServiceRequestCalls" targetTableName="Service_Request_Calls" used="true"/>
+</table>
+<table catalog="db_assigment" databaseType="TABLE" javaBean="Contacts" name="Contacts" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Contact_ID" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="contactId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Contact id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Contact_Name" dbNotNull="false" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="contactName" javaType="java.lang.String" jdbcTypeCode="12" label="Contact name" maxLength="45" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Job_Title" dbNotNull="false" dbPosition="3" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="jobTitle" javaType="java.lang.String" jdbcTypeCode="12" label="Job title" maxLength="45" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Contact_Details" dbNotNull="false" dbPosition="4" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="contactDetails" javaType="java.lang.String" jdbcTypeCode="12" label="Contact details" maxLength="45" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Customers_Customer_ID" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="customersCustomerId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Customers customer id" notNull="true" selected="true"/>
+<fk name="fk_Contacts_Customers">
+<fkcol colname="Customers_Customer_ID" colref="Customer_ID" deferrable="7" deleterule="3" sequence="1" tablename="Contacts" tableref="Customers" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Contacts_Customers" id="LINK_FK_fk_Contacts_Customers_O" inverseSideOf="" javaName="customers" javaType="Customers" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="Contacts" targetEntity="Customers" targetTableName="Customers" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="Customers_Customer_ID" nullable="true" referencedColumnName="Customer_ID" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Calls_Contacts1" id="LINK_FK_fk_Service_Request_Calls_Contacts1_I" inverseSideOf="LINK_FK_fk_Service_Request_Calls_Contacts1_O" javaName="listOfServiceRequestCalls" javaType="java.util.List" joinTableName="" mappedBy="contacts" optional="" owningSide="false" sourceTableName="Contacts" targetEntity="ServiceRequestCalls" targetTableName="Service_Request_Calls" used="true"/>
+</table>
+<table catalog="db_assigment" databaseType="TABLE" javaBean="Customers" name="Customers" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Customer_ID" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="customerId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Customer id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Customer_Name" dbNotNull="false" dbPosition="2" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="customerName" javaType="java.lang.String" jdbcTypeCode="12" label="Customer name" maxLength="255" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Customer_Address" dbNotNull="false" dbPosition="3" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="customerAddress" javaType="java.lang.String" jdbcTypeCode="12" label="Customer address" maxLength="45" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Other_Details" dbNotNull="false" dbPosition="4" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="otherDetails" javaType="java.lang.String" jdbcTypeCode="12" label="Other details" maxLength="45" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Contacts_Customers" id="LINK_FK_fk_Contacts_Customers_I" inverseSideOf="LINK_FK_fk_Contacts_Customers_O" javaName="listOfContacts" javaType="java.util.List" joinTableName="" mappedBy="customers" optional="" owningSide="false" sourceTableName="Customers" targetEntity="Contacts" targetTableName="Contacts" used="true"/>
+</table>
+<table catalog="db_assigment" databaseType="TABLE" javaBean="OutcomeCodes" name="Outcome_Codes" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Outcome_Codes" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="outcomeCodes" javaType="java.lang.Integer" jdbcTypeCode="4" label="Outcome codes" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Outcome_Description" dbNotNull="false" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="outcomeDescription" javaType="java.lang.String" jdbcTypeCode="12" label="Outcome description" maxLength="45" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Actions_Outcome_Codes1" id="LINK_FK_fk_Service_Request_Actions_Outcome_Codes1_I" inverseSideOf="LINK_FK_fk_Service_Request_Actions_Outcome_Codes1_O" javaName="listOfServiceRequestActions" javaType="java.util.List" joinTableName="" mappedBy="outcomeCodes" optional="" owningSide="false" sourceTableName="Outcome_Codes" targetEntity="ServiceRequestActions" targetTableName="Service_Request_Actions" used="true"/>
+</table>
+<table catalog="db_assigment" databaseType="TABLE" javaBean="Problems" name="Problems" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Problem_Code" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="problemCode" javaType="java.lang.Integer" jdbcTypeCode="4" label="Problem code" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Problem_Description" dbNotNull="false" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="problemDescription" javaType="java.lang.String" jdbcTypeCode="12" label="Problem description" maxLength="45" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Calls_Problems1" id="LINK_FK_fk_Service_Request_Calls_Problems1_I" inverseSideOf="LINK_FK_fk_Service_Request_Calls_Problems1_O" javaName="listOfServiceRequestCalls" javaType="java.util.List" joinTableName="" mappedBy="problems" optional="" owningSide="false" sourceTableName="Problems" targetEntity="ServiceRequestCalls" targetTableName="Service_Request_Calls" used="true"/>
+</table>
+<table catalog="db_assigment" databaseType="TABLE" javaBean="ServiceRequestActions" name="Service_Request_Actions" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Response_ID" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="responseId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Response id" notNull="true" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="Response_Datetime" dbNotNull="false" dbPosition="2" dbSize="19" dbTypeName="DATETIME" inputType="" javaName="responseDatetime" javaType="java.util.Date" jdbcTypeCode="93" label="Response datetime" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Call_ID" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="INT" inputType="number" javaName="callId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Call id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Action_Code" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="actionCode" javaType="java.lang.Integer" jdbcTypeCode="4" label="Action code" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Outcome_Code" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="outcomeCode" javaType="java.lang.Integer" jdbcTypeCode="4" label="Outcome code" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Technician_ID" dbNotNull="true" dbPosition="6" dbSize="10" dbTypeName="INT" inputType="number" javaName="technicianId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Technician id" notNull="true" selected="true"/>
+<fk name="fk_Service_Request_Actions_Actions1">
+<fkcol colname="Action_Code" colref="Action_Code" deferrable="7" deleterule="3" sequence="1" tablename="Service_Request_Actions" tableref="Actions" updaterule="3"/>
+</fk>
+<fk name="fk_Service_Request_Actions_Outcome_Codes1">
+<fkcol colname="Outcome_Code" colref="Outcome_Codes" deferrable="7" deleterule="3" sequence="1" tablename="Service_Request_Actions" tableref="Outcome_Codes" updaterule="3"/>
+</fk>
+<fk name="fk_Service_Request_Actions_Service_Request_Calls1">
+<fkcol colname="Call_ID" colref="Call_ID" deferrable="7" deleterule="3" sequence="1" tablename="Service_Request_Actions" tableref="Service_Request_Calls" updaterule="3"/>
+</fk>
+<fk name="fk_Service_Request_Actions_Technicians1">
+<fkcol colname="Technician_ID" colref="Technician_ID" deferrable="7" deleterule="3" sequence="1" tablename="Service_Request_Actions" tableref="Technicians" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Actions_Actions1" id="LINK_FK_fk_Service_Request_Actions_Actions1_O" inverseSideOf="" javaName="actions" javaType="Actions" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="Service_Request_Actions" targetEntity="Actions" targetTableName="Actions" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="Action_Code" nullable="true" referencedColumnName="Action_Code" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Actions_Technicians1" id="LINK_FK_fk_Service_Request_Actions_Technicians1_O" inverseSideOf="" javaName="technicians" javaType="Technicians" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="Service_Request_Actions" targetEntity="Technicians" targetTableName="Technicians" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="Technician_ID" nullable="true" referencedColumnName="Technician_ID" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Actions_Service_Request_Calls1" id="LINK_FK_fk_Service_Request_Actions_Service_Request_Calls1_O" inverseSideOf="" javaName="serviceRequestCalls" javaType="ServiceRequestCalls" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="Service_Request_Actions" targetEntity="ServiceRequestCalls" targetTableName="Service_Request_Calls" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="Call_ID" nullable="true" referencedColumnName="Call_ID" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Actions_Outcome_Codes1" id="LINK_FK_fk_Service_Request_Actions_Outcome_Codes1_O" inverseSideOf="" javaName="outcomeCodes" javaType="OutcomeCodes" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="Service_Request_Actions" targetEntity="OutcomeCodes" targetTableName="Outcome_Codes" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="Outcome_Code" nullable="true" referencedColumnName="Outcome_Codes" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="db_assigment" databaseType="TABLE" javaBean="ServiceRequestCalls" name="Service_Request_Calls" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Call_ID" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="callId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Call id" notNull="true" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="Date_Time_of_Call" dbNotNull="false" dbPosition="2" dbSize="19" dbTypeName="DATETIME" inputType="" javaName="dateTimeOfCall" javaType="java.util.Date" jdbcTypeCode="93" label="Date time of call" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Other_Details" dbNotNull="false" dbPosition="3" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="otherDetails" javaType="java.lang.String" jdbcTypeCode="12" label="Other details" maxLength="45" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Contact_ID" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="contactId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Contact id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Charge_Code" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="chargeCode" javaType="java.lang.Integer" jdbcTypeCode="4" label="Charge code" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Status_Code" dbNotNull="true" dbPosition="6" dbSize="10" dbTypeName="INT" inputType="number" javaName="statusCode" javaType="java.lang.Integer" jdbcTypeCode="4" label="Status code" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Problem_Code" dbNotNull="true" dbPosition="7" dbSize="10" dbTypeName="INT" inputType="number" javaName="problemCode" javaType="java.lang.Integer" jdbcTypeCode="4" label="Problem code" notNull="true" selected="true"/>
+<fk name="fk_Service_Request_Calls_Charge_Codes1">
+<fkcol colname="Charge_Code" colref="Charge_Code" deferrable="7" deleterule="3" sequence="1" tablename="Service_Request_Calls" tableref="Charge_Codes" updaterule="3"/>
+</fk>
+<fk name="fk_Service_Request_Calls_Contacts1">
+<fkcol colname="Contact_ID" colref="Contact_ID" deferrable="7" deleterule="3" sequence="1" tablename="Service_Request_Calls" tableref="Contacts" updaterule="3"/>
+</fk>
+<fk name="fk_Service_Request_Calls_Problems1">
+<fkcol colname="Problem_Code" colref="Problem_Code" deferrable="7" deleterule="3" sequence="1" tablename="Service_Request_Calls" tableref="Problems" updaterule="3"/>
+</fk>
+<fk name="fk_Service_Request_Calls_Status_Code1">
+<fkcol colname="Status_Code" colref="Status_Code" deferrable="7" deleterule="3" sequence="1" tablename="Service_Request_Calls" tableref="Status_Code" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Actions_Service_Request_Calls1" id="LINK_FK_fk_Service_Request_Actions_Service_Request_Calls1_I" inverseSideOf="LINK_FK_fk_Service_Request_Actions_Service_Request_Calls1_O" javaName="listOfServiceRequestActions" javaType="java.util.List" joinTableName="" mappedBy="serviceRequestCalls" optional="" owningSide="false" sourceTableName="Service_Request_Calls" targetEntity="ServiceRequestActions" targetTableName="Service_Request_Actions" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Calls_Problems1" id="LINK_FK_fk_Service_Request_Calls_Problems1_O" inverseSideOf="" javaName="problems" javaType="Problems" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="Service_Request_Calls" targetEntity="Problems" targetTableName="Problems" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="Problem_Code" nullable="true" referencedColumnName="Problem_Code" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Calls_Status_Code1" id="LINK_FK_fk_Service_Request_Calls_Status_Code1_O" inverseSideOf="" javaName="statusCode2" javaType="StatusCode" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="Service_Request_Calls" targetEntity="StatusCode" targetTableName="Status_Code" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="Status_Code" nullable="true" referencedColumnName="Status_Code" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Calls_Charge_Codes1" id="LINK_FK_fk_Service_Request_Calls_Charge_Codes1_O" inverseSideOf="" javaName="chargeCodes" javaType="ChargeCodes" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="Service_Request_Calls" targetEntity="ChargeCodes" targetTableName="Charge_Codes" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="Charge_Code" nullable="true" referencedColumnName="Charge_Code" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Calls_Contacts1" id="LINK_FK_fk_Service_Request_Calls_Contacts1_O" inverseSideOf="" javaName="contacts" javaType="Contacts" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="Service_Request_Calls" targetEntity="Contacts" targetTableName="Contacts" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="Contact_ID" nullable="true" referencedColumnName="Contact_ID" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="db_assigment" databaseType="TABLE" javaBean="StatusCode" name="Status_Code" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Status_Code" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="statusCode" javaType="java.lang.Integer" jdbcTypeCode="4" label="Status code" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Status_Decription" dbNotNull="false" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="statusDecription" javaType="java.lang.String" jdbcTypeCode="12" label="Status decription" maxLength="45" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Calls_Status_Code1" id="LINK_FK_fk_Service_Request_Calls_Status_Code1_I" inverseSideOf="LINK_FK_fk_Service_Request_Calls_Status_Code1_O" javaName="listOfServiceRequestCalls" javaType="java.util.List" joinTableName="" mappedBy="statusCode2" optional="" owningSide="false" sourceTableName="Status_Code" targetEntity="ServiceRequestCalls" targetTableName="Service_Request_Calls" used="true"/>
+</table>
+<table catalog="db_assigment" databaseType="TABLE" javaBean="Technicians" name="Technicians" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Technician_ID" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="technicianId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Technician id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Technician_Name" dbNotNull="false" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="technicianName" javaType="java.lang.String" jdbcTypeCode="12" label="Technician name" maxLength="45" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Service_Request_Actions_Technicians1" id="LINK_FK_fk_Service_Request_Actions_Technicians1_I" inverseSideOf="LINK_FK_fk_Service_Request_Actions_Technicians1_O" javaName="listOfServiceRequestActions" javaType="java.util.List" joinTableName="" mappedBy="technicians" optional="" owningSide="false" sourceTableName="Technicians" targetEntity="ServiceRequestActions" targetTableName="Service_Request_Actions" used="true"/>
+</table>
+</tableList>
+</root>

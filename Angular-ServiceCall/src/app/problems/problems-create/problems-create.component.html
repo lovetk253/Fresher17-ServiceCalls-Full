@@ -1,0 +1,16 @@
+<div class="auth-container">
+  <div class="s1"><h2 class="text-center">Add Problems</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>actionsDescription :</label>
+        <input formControlName="problemDescription" placeholder="problemDescription" name="problemDescription"
+               class="form-control" id="chargeDescription"
+               [ngClass]="{ 'is-invalid': submitted && f.problemDescription.errors }">
+        <div *ngIf="submitted && f.problemDescription.errors" class="invalid-feedback">
+          <div *ngIf="f.problemDescription.errors.required">problemDescription is required</div>
+        </div>
+      </div>
+      <button class="btn btn-success">Create &#9824;</button>
+    </form>
+  </div>
+</div>

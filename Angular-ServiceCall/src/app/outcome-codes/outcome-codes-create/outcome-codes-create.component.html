@@ -1,0 +1,16 @@
+<div class="auth-container">
+  <div class="s1"><h2 class="text-center">Add Outcome Code</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>outcomeDescription :</label>
+        <input formControlName="outcomeDescription" placeholder="outcomeDescription" name="outcomeDescription"
+               class="form-control" id="outcomeDescription"
+               [ngClass]="{ 'is-invalid': submitted && f.outcomeDescription.errors }">
+        <div *ngIf="submitted && f.outcomeDescription.errors" class="invalid-feedback">
+          <div *ngIf="f.outcomeDescription.errors.required">Last Name is required</div>
+        </div>
+      </div>
+      <button class="btn btn-success">Create &#9824;</button>
+    </form>
+  </div>
+</div>

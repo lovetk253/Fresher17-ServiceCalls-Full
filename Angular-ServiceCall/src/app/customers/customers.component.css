@@ -1,0 +1,42 @@
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  padding-right: 0;
+  overflow: hidden;
+  max-width: 100%;;
+  background-color: #334443;
+  box-sizing: border-box;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #275929;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+th {
+  width: 100vh;
+}
+
+td {
+  width: 100vh;
+}
+
+.navbar-bootstrap {
+  color: white;
+}

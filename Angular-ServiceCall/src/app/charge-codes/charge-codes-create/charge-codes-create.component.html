@@ -1,0 +1,23 @@
+<div class="auth-container">
+  <div class="s1"><h2 class="text-center">Add Charge Code</h2>
+
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+
+        <input type="hidden" formControlName="chargeCode" placeholder="chargeCode" name="chargeCode"
+               class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>chargeDescription :</label>
+        <input formControlName="chargeDescription" placeholder="chargeDescription" name="chargeDescription"
+               class="form-control" id="chargeDescription"
+               [ngClass]="{ 'is-invalid': submitted && f.chargeDescription.errors }">
+        <div *ngIf="submitted && f.chargeDescription.errors" class="invalid-feedback">
+          <div *ngIf="f.chargeDescription.errors.required">Last Name is required</div>
+        </div>
+      </div>
+      <button class="btn btn-success">Create &#9824;</button>
+    </form>
+  </div>
+</div>
